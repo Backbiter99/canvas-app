@@ -1,5 +1,5 @@
 {
-    "name": "backend-http",
+    "name": "@repo/backend-http",
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
@@ -13,8 +13,10 @@
     },
     "devDependencies": {
         "@repo/typescript-config": "workspace: *",
+        "@repo/backend-common": "workspace: *",
         "@types/express": "^5.0.0",
-        "@types/jsonwebtoken": "^9.0.8"
+        "@types/jsonwebtoken": "^9.0.8",
+        "@repo/common": "workspace:*"
     },
     "keywords": [],
     "author": "",
