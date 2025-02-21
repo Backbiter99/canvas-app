@@ -103,4 +103,20 @@ appRouter.post("/room", authMiddleware, async (req: Request, res: Response) => {
     }
 });
 
+appRouter.get("/chats/:roomId", async (req, res) => {
+    const roomId = Number(req.params.roomId);
+
+    const messages = await prisma.chat.findMany({
+        where: {
+            roomId: roomId,
+        },
+        take: 50,
+        orderBy: {
+            id: "desc",
+        },
+    });
+
+    res.json(messages);
+});
+
 export default appRouter;
