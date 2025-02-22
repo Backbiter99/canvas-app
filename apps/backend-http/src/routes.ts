@@ -119,4 +119,17 @@ appRouter.get("/chats/:roomId", async (req, res) => {
     res.json(messages);
 });
 
+appRouter.get("/room/:slug", async (req, res) => {
+    const slug = req.params.slug;
+    console.log("Slug: ", slug);
+
+    const room = await prisma.room.findFirst({
+        where: {
+            slug,
+        },
+    });
+
+    res.json(room);
+});
+
 export default appRouter;
