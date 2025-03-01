@@ -59,14 +59,30 @@ export async function initDraw(
         const width = e.clientX - startX;
         const height = e.clientY - startY;
 
-        const shape: Shape = {
-            type: "rect",
-            x: startX,
-            y: startY,
-            width,
-            height,
-        };
+        // @ts-ignore
+        const selectedTool = window.selectedTool;
+        let shape: Shape | null = null;
+        if (selectedTool == "rect") {
+            shape = {
+                type: "rect",
+                x: startX,
+                y: startY,
+                width,
+                height,
+            };
+        } else if (selectedTool == "circle") {
+            const radius = Math.max(width, height) / 2;
+            shape = {
+                type: "circle",
+                radius: radius,
+                centerX: width >= 0 ? startX + radius : startX - radius,
+                centerY: height >= 0 ? startY + radius : startY - radius,
+            };
+        }
 
+        if (!shape) {
+            return;
+        }
         existingShapes.push(shape);
 
         socket.send(
@@ -86,7 +102,19 @@ export async function initDraw(
             clearCanvas(existingShapes, canvas, ctx);
 
             ctx.strokeStyle = "rgba(255,255,255)";
-            ctx.strokeRect(startX, startY, width, height);
+            // @ts-ignore
+            const selectedTool = window.selectedTool;
+            if (selectedTool === "rect") {
+                ctx.strokeRect(startX, startY, width, height);
+            } else if (selectedTool === "circle") {
+                const centerX = startX + width / 2;
+                const centerY = startY + height / 2;
+                const radius = Math.max(Math.abs(width), Math.abs(height));
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, 0, Math.PI * 2, false);
+                ctx.stroke();
+                ctx.closePath();
+            }
         }
     });
 }
@@ -105,6 +133,14 @@ function clearCanvas(
         if (shape.type === "rect") {
             ctx.strokeStyle = "rgba(255,255,255)";
             ctx.strokeRect(shape.x, shape.y, shape.width, shape.height);
+        } else if (shape.type === "circle") {
+            const centerX = shape.centerX;
+            const centerY = shape.centerY;
+            const radius = shape.radius;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2, false);
+            ctx.stroke();
+            ctx.closePath();
         }
     });
 }
