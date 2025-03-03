@@ -123,13 +123,52 @@ appRouter.get("/room/:slug", async (req, res) => {
     const slug = req.params.slug;
     console.log("Slug: ", slug);
 
-    const room = await prisma.room.findFirst({
-        where: {
-            slug,
-        },
-    });
+    try {
+        const room = await prisma.room.findFirst({
+            where: {
+                slug,
+            },
+            select: {
+                id: true,
+            },
+        });
 
-    res.json(room);
+        res.json(room);
+    } catch (error) {
+        res.status(411).json("Invalid Slug");
+        console.error("Error: ", error);
+    }
+});
+
+appRouter.get("/rooms", authMiddleware, async (req, res) => {
+    const userId = req.userId;
+    try {
+        const rooms = await prisma.room.findMany({
+            where: { adminId: userId },
+        });
+        res.json(rooms);
+    } catch (error) {
+        console.error("Error: ", error);
+    }
+});
+
+appRouter.delete("/room/:roomId", authMiddleware, async (req, res) => {
+    const roomId = Number(req.params.roomId);
+    const userId = req.userId;
+    console.log(roomId, userId);
+
+    try {
+        await prisma.room.delete({
+            where: {
+                id: roomId,
+                adminId: userId,
+            },
+        });
+
+        res.json("deleted successfully");
+    } catch (error) {
+        console.error("Error :", error);
+    }
 });
 
 export default appRouter;

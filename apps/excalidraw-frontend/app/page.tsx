@@ -24,22 +24,24 @@ export default function Home() {
                         </h1>
                         <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto">
                             Create, collaborate, and share beautiful diagrams
-                            and sketches with your team in real-time. No sign-up
-                            required.
+                            and sketches with your team in real-time.
                         </p>
                         <div className="mt-10 flex justify-center gap-4">
-                            <Link href={"/signin"}>
-                                <Button
-                                    size="lg"
-                                    className="bg-blue-600 hover:bg-blue-700"
+                            <Link href="/signin">
+                                <button
+                                    className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+                                    aria-label="Sign in"
                                 >
                                     Sign in
-                                </Button>
+                                </button>
                             </Link>
-                            <Link href={"/signup"}>
-                                <Button size="lg" variant="outline">
+                            <Link href="/signup">
+                                <button
+                                    className="border border-blue-600 text-blue-600 font-semibold py-2 px-6 rounded-lg hover:bg-blue-600 hover:text-white shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+                                    aria-label="Sign up"
+                                >
                                     Sign up
-                                </Button>
+                                </button>
                             </Link>
                         </div>
                     </div>
@@ -68,7 +70,7 @@ export default function Home() {
                                 icon: Users2,
                             },
                             {
-                                title: "Infinite Canvas",
+                                title: "Infinite Canvas (Coming Soon)",
                                 description:
                                     "Never run out of space. Create without boundaries.",
                                 icon: Layers,
@@ -86,13 +88,13 @@ export default function Home() {
                                 icon: Pencil,
                             },
                             {
-                                title: "Cloud Sync",
+                                title: "Cloud Sync(Coming Soon)",
                                 description:
                                     "Your drawings are automatically saved and synced across devices.",
                                 icon: Cloud,
                             },
                             {
-                                title: "Export Options",
+                                title: "Export Options(Coming Soon)",
                                 description:
                                     "Export your work in multiple formats including PNG, SVG, and PDF.",
                                 icon: ArrowRight,
@@ -117,158 +119,32 @@ export default function Home() {
 
             {/* CTA Section */}
             <div className="bg-blue-600 text-white py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold mb-8">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+                    <h2 className="text-4xl font-bold mb-6">
                         Ready to start creating?
                     </h2>
-                    <p className="text-xl mb-10 text-blue-100">
-                        Join thousands of teams who trust our platform for their
-                        visual collaboration needs.
+                    <p className="text-lg sm:text-xl mb-8 text-blue-200">
+                        Join the platform for your visual collaboration needs
                     </p>
-                    <Button size="lg" variant="secondary">
-                        <Link href="/draw">
-                            Start Drawing for Free{" "}
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                    </Button>
+                    <Link href="/signup">
+                        <button
+                            className="group flex items-center justify-center gap-3 px-6 py-3 rounded-lg bg-white text-blue-600 border border-white hover:bg-blue-700 hover:text-white font-semibold shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 mx-auto"
+                            aria-label="Start Drawing for Free"
+                        >
+                            Sign Up Now
+                            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                        </button>
+                    </Link>
                 </div>
             </div>
 
             {/* Footer */}
-            <footer className="bg-background border-t">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        <div>
-                            <h3 className="text-sm font-semibold text-primary uppercase tracking-wider">
-                                Product
-                            </h3>
-                            <ul className="mt-4 space-y-2">
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Features
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Templates
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Pricing
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-sm font-semibold text-primary uppercase tracking-wider">
-                                Resources
-                            </h3>
-                            <ul className="mt-4 space-y-2">
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Documentation
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Tutorials
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Blog
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-sm font-semibold text-primary uppercase tracking-wider">
-                                Company
-                            </h3>
-                            <ul className="mt-4 space-y-2">
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        About
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Careers
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Contact
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-sm font-semibold text-primary uppercase tracking-wider">
-                                Legal
-                            </h3>
-                            <ul className="mt-4 space-y-2">
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Privacy
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Terms
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="text-muted-foreground hover:text-primary"
-                                    >
-                                        Security
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="mt-12 border-t pt-8">
-                        <p className="text-center text-muted-foreground">
-                            © {new Date().getFullYear()} Your Excalidraw Clone.
-                            All rights reserved.
-                        </p>
-                    </div>
+            <footer className="bg-gray-300 ">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-10">
+                    <p className="text-center text-sm text-gray-800">
+                        © {new Date().getFullYear()} Excalidraw Clone. All
+                        rights reserved.
+                    </p>
                 </div>
             </footer>
         </div>
