@@ -1,10 +1,10 @@
 # Real-Time Collaboration App
 
-## Motivation
+## 🚀 Motivation
 
-Building a real-time collaboration app using WebSockets and Canvas, something like a collaborative Excalidraw.
+Building a real-time collaboration app using WebSockets and Canvas, inspired by Excalidraw.
 
-## Tech Stack
+## 🛠 Tech Stack
 
 - **Language:** TypeScript
 - **Backend:** Express, WebSocket
@@ -12,20 +12,24 @@ Building a real-time collaboration app using WebSockets and Canvas, something li
 - **ORM:** Prisma
 - **Frontend:** Next.js
 
-## Local Installation Instructions
+## 📥 Local Installation
 
-Clone the repository:
+### 1️⃣ Clone the Repository
 
 ```sh
 git clone https://github.com/Backbiter99/canvas-app.git
 cd canvas-app
 ```
 
+### 2️⃣ Install Dependencies
+
 The package manager used is **pnpm**.
 
 ```sh
 pnpm i
 ```
+
+### 3️⃣ Set Up the Database
 
 Navigate to the database package:
 
@@ -39,21 +43,24 @@ Create a `.env` file and set the following variable:
 DATABASE_URL="your-postgres-url"
 ```
 
-Generate the `prisma` client:
+You can use Docker or get a free PostgreSQL database from [Neon.tech](https://neon.tech).
 
-```
+### 4️⃣ Generate Prisma Client
+
+```sh
 npx prisma generate
 ```
 
-You can use Docker or get a free PostgreSQL database from [Neon.tech](https://neon.tech).
+### 5️⃣ Run the Application
 
-To run the application locally:
+Go back to the root folder and start the application locally:
 
 ```sh
+cd ../..
 pnpm run dev
 ```
 
-## Features Left to Add
+## 🔧 Features Left to Add
 
-- Complete Pencil functionality
-- Add panning and zooming
+- ✏️ Complete Pencil functionality
+- 🔍 Add panning and zooming
