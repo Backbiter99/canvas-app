@@ -14,6 +14,13 @@ Building a real-time collaboration app using WebSockets and Canvas, something li
 
 ## Local Installation Instructions
 
+Clone the repository:
+
+```sh
+git clone https://github.com/Backbiter99/canvas-app.git
+cd canvas-app
+```
+
 The package manager used is **pnpm**.
 
 ```sh
@@ -32,7 +39,19 @@ Create a `.env` file and set the following variable:
 DATABASE_URL="your-postgres-url"
 ```
 
+Generate the `prisma` client:
+
+```
+npx prisma generate
+```
+
 You can use Docker or get a free PostgreSQL database from [Neon.tech](https://neon.tech).
+
+To run the application locally:
+
+```sh
+pnpm run dev
+```
 
 ## Features Left to Add
 
