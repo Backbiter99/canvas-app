@@ -1,0 +1,19 @@
+{
+    "builds": [
+        {
+            "src": "packages/web/package.json",
+            "use": "@vercel/next"
+        },
+        {
+            "src": "packages/api/package.json",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "packages/db/package.json",
+            "use": "@vercel/node"
+        }
+    ],
+    "installCommand": "pnpm install",
+    "buildCommand": "turbo run build --filter=!db...",
+    "postbuildCommand": "cd packages/db && pnpm prisma generate"
+}
