@@ -37,10 +37,16 @@ Navigate to the database package:
 cd packages/db
 ```
 
-Create a `.env` file and set the following variable:
+Create a `.env` file
 
 ```sh
-DATABASE_URL="your-postgres-url"
+touch .env
+```
+
+Add the following to the `.env` file:
+
+```sh
+DATABASE_URL= # Your PostgreSQL database URL
 ```
 
 You can use Docker or get a free PostgreSQL database from [Neon.tech](https://neon.tech).
@@ -48,7 +54,7 @@ You can use Docker or get a free PostgreSQL database from [Neon.tech](https://ne
 ### 4️⃣ Generate Prisma Client
 
 ```sh
-npx prisma generate
+pnpm prisma generate
 ```
 
 ### 5️⃣ Run the Application
